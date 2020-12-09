@@ -1,0 +1,21 @@
+<ion-list *ngIf="deseosService.lists.length > 0">
+  <ion-item-sliding *ngFor="let list of deseosService.lists | filterComplete:finished" class="animated fadeInDown">
+
+      <ion-item detail (click)="listSelected(list.id)">
+        <ion-label>{{ list.titulo }}</ion-label>
+        <ion-badge slot="end" color="tertiary">{{ list.items.length }} items</ion-badge>
+      </ion-item>
+      
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteList(list)" color="danger">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="start">
+        <ion-item-option (click)="updateList(list)"color="primary">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    
+  </ion-item-sliding>
+</ion-list>

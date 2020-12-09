@@ -1,0 +1,12 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      Finalizados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-lists [finished]="true"></app-lists>
+  <app-explore-container *ngIf="deseosService.lists.length === 0" name="No hay finalizados"></app-explore-container>
+</ion-content>
